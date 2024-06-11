@@ -19,7 +19,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.alexrc.aiticketscanner"
     },
     "web": {
       "bundler": "metro",
@@ -37,14 +42,31 @@
         }
       ],
       [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera."
+        }
+      ],
+      [
         "expo-font",
         {
-          "fonts": ["assets/fonts/SpaceMono-Regular.ttf"]
+          "fonts": [
+            "assets/fonts/SpaceMono-Regular.ttf"
+          ]
         }
-      ]
+      ],
+      "react-native-vision-camera"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "37037f9a-3f77-4cb5-bf7c-c4bbab421167"
+      }
     }
   }
 }
