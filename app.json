@@ -13,7 +13,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera.",
+        "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone."
+      },
+      "bundleIdentifier": "com.alexrc.aiticketscanner"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,6 +39,21 @@
     "plugins": [
       "expo-router",
       [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "minSdkVersion": 28,
+            "kotlinVersion": "1.7.20",
+            "buildToolsVersion": "34.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "13.4"
+          }
+        }
+      ],
+      [
         "expo-camera",
         {
           "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
@@ -44,7 +64,9 @@
       [
         "react-native-vision-camera",
         {
-          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera."
+          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera.",
+          "enableMicrophonePermission": true,
+          "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone."
         }
       ],
       [
@@ -55,7 +77,8 @@
           ]
         }
       ],
-      "react-native-vision-camera"
+      "react-native-vision-camera",
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
